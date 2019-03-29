@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="directoryApp" lang="es">
+<head>
+    <title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
+    <script src="directory.js"></script>
+
+    <link href="/style.css" rel="stylesheet" />
+
+</head>
+<body ng-controller="directoryController as dirList" class="{{dirList.search}}">
+    <nav>
+        <a href="#!">Home</a>
+        <a href="#!name">Name</a>
+    </nav>
+
+    <div class="content" ng-view></div> 
+</body>
+</html>

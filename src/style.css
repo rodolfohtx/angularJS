@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+nav {
+    background: beige;
+    padding: 15px;
+}
+.content {
+    padding: 0 15px 15px 15px;
+}
+.over-thirty {
+    color: red;
+}
+.under-thirty {
+    color: green;
+}
+.hidden {
+    display: none;
+}
+.lista-desplegada {
+    display: flex;
+    justify-content: center;
+}
+a {
+    text-decoration-line: none;
+}
+li {
+    display: flex;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+li span {
+    display: inline-block;
+    line-height: 50px;
+}
+li img {
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+li.ng-enter {
+    transition: 0.4s ease-in-out all;
+    opacity: 0;
+    transform: translate(-100%)
+}
+li.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translate(0)
+}
+li.ng-leave {
+    transition: 0.4s ease-in-out all;
+    opacity: 1;
+    transform: translate(0)
+}
+li.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translate(100%)
+}
+.nameOne, .buttonOne {
+    cursor: pointer;
+}
+.green {
+    background-color: green;
+}
