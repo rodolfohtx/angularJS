@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script> function getLocalStorage(){var nom = document.getElementById("nombreText").value; localStorage.name = nom; document.getElementById("new").innerHTML = localStorage.name} </script>
-    <script> function changeName(){localStorage.setItem("name","Albert"); document.getElementById("new").innerHTML = localStorage.name}</script>
-        
     <title>Home</title>
 </head>
 <body>
@@ -18,26 +15,37 @@
     <button ng-hide="dirList.toggle" ng-click="dirList.toggle = true">Mostrar</button>
     <button ng-hide="!dirList.toggle" ng-click="dirList.toggle = false">Ocultar</button><span> Para ocultar lista</span>
     
-    <div class="lista-desplegada">
-        <ul ng-if="dirList.toggle">
-            <a href="#!name">
-                <li ng-repeat="item in dirList.list | filter: dirList.search" class="{{item.nombre}}" ng-class="item.edad > 29 ? 'over-thirty' : 'under-thirty'">
-                    <img ng-src="{{item.img}}"/><span>{{item.nombre}} - <em>{{item.edad}}</em></span>
-                </li>
-            </a>
-        </ul>
+    <div>
+        <div class="dropdown">
+            <select id="option-select" class="drop-content" ng-model="dirList.orderedBy">
+                <option value="nombre" class="option">Nombre</option>
+                <option value="edad" class="option">Edad</option>
+            </select>
+        </div>
+        <div class="lista-desplegada">
+            <ul ng-if="dirList.toggle" ng-mousemove="dirList.count = dirList.count + 1">
+                <a href="#!name" >
+                    <li ng-repeat="item in dirList.list | filter: dirList.search | orderBy: dirList.orderedBy" class="{{item.nombre}}" ng-class="item.edad > 29 ? 'over-thirty' : 'under-thirty'">
+                        <img ng-src="{{item.img}}"/><span>{{item.nombre}} - <em>{{item.edad}}</em></span>
+                    </li>
+                </a>
+            </ul>
+        </div>
     </div>
 
     <br>
-    <span id="new" class="nameOne" onclick="getLocalStorage()"></span>
+    <span id="new" class="nameOne" onclick="getLocalStorage()">H</span>
+    <button onclick="changeName()">Change</button>
     <br>
     <button class="buttonOne" ng-click="dirList.removePerson()">Remove</button>
     
     <form ng-submit="dirList.addPerson()">
-        <input type="text" placeholder="Name" ng-model="dirList.nombre">
-        <input type="number" placeholder="Age" ng-model="dirList.edad">
+        <input type="text" placeholder="Name" ng-model="dirList.nombre" required>
+        <input type="number" placeholder="Age" ng-model="dirList.edad" required>
         <input type="submit" value="Submit">
         <span>Agregar nuevo usuario</span>
     </form>
+    <h2>Contador: {{dirList.count}}</h2>
+    <telefonos></telefonos>
 </body>
 </html>

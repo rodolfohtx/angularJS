@@ -1,4 +1,4 @@
-angular.module('directoryApp',["ngRoute"])
+angular.module('directoryApp',['ngRoute'])
     .config(function($routeProvider){
         $routeProvider
             .when("/",{
@@ -6,6 +6,9 @@ angular.module('directoryApp',["ngRoute"])
             })
             .when("/name",{
                 templateUrl: "Pages/name.html"
+            })
+            .when("/about-us",{
+                templateUrl: "Pages/about-us.html"
             })
     })
     .controller('directoryController', function(){
@@ -19,7 +22,10 @@ angular.module('directoryApp',["ngRoute"])
             {nombre: 'Ana', edad: 29, img: 'https://placeimg.com/23/24/any'},
             {nombre: 'David', edad: 12, img: 'https://placeimg.com/24/23/any'},
             {nombre: 'Daniel', edad: 50, img: 'https://placeimg.com/25/25/any'},
-            {nombre: 'Arturo', edad: 29, img: 'https://placeimg.com/23/26/any'}
+            {nombre: 'Arturo', edad: 29, img: 'https://placeimg.com/23/26/any'},
+            {nombre: 'Roberto', edad: 25, img: 'https://placeimg.com/22/27/any'},
+            {nombre: 'Daniel', edad: 30, img: 'https://placeimg.com/23/27/any'},
+            {nombre: 'Jose', edad: 89, img: 'https://placeimg.com/23/23/any'},
         ];
 
         dirList.toggle = true
@@ -35,4 +41,9 @@ angular.module('directoryApp',["ngRoute"])
         dirList.removePerson = function(){
             dirList.list.pop();
         }
+
+        dirList.count = 0;
+    })
+    .factory('Data', function() {
+        return {message: "I'm data from a service"}
     });

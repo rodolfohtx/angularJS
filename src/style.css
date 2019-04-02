@@ -7,6 +7,7 @@ nav {
 }
 .content {
     padding: 0 15px 15px 15px;
+    margin-bottom: 30px;
 }
 .over-thirty {
     color: red;
@@ -23,6 +24,11 @@ nav {
 }
 a {
     text-decoration-line: none;
+    padding-right: 15px;
+    color: brown;
+}
+ul {
+        padding-left: 10px;
 }
 li {
     display: flex;
@@ -63,4 +69,49 @@ li.ng-leave.ng-leave-active {
 }
 .green {
     background-color: green;
+}
+
+.drop-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.drop-content {
+    position: absolute;
+    background-color: #4CAF50;
+    padding: 10px 16px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-content .option {
+    background-color: whitesmoke;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+  
+.drop-content .option:hover {background-color: #ddd;}
+
+.dropdown:hover .drop-content {display: block;}
+
+.drop:hover .drop-btn {background-color: #3e8e41;}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: bisque;
+    width: 100%;
+    padding: 15px;
 }
