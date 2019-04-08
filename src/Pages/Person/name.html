@@ -10,6 +10,14 @@
     <div>
         <h1>Plantilla Nombre: {{dirList.name}}</h1>
         <section>This is Name section.</section>
+        <div class="name-res">
+            <input ng-model="dirList.valNum" type="number">
+            <button ng-click="dirList.square()">Calc</button>
+            <span>
+                Resultado: {{dirList.squareRes}}
+            </span>
+        </div>
+        {{dirList.callService}}
     </div>
 </body>
 </html>

@@ -1,19 +1,18 @@
-angular.module('directoryApp',['ngRoute'])
+angular.module('directoryApp',['ngRoute', 'person'])
     .config(function($routeProvider){
         $routeProvider
             .when("/",{
-                templateUrl: "Pages/home.html"
+                templateUrl: "Pages/Home/home.html"
             })
             .when("/name",{
-                templateUrl: "Pages/name.html"
+                templateUrl: "Pages/Person/name.html"
             })
             .when("/about-us",{
-                templateUrl: "Pages/about-us.html"
+                templateUrl: "Pages/AboutUs/about-us.html"
             })
     })
     
-    .controller('directoryController' , function(oper){
-
+    .controller('directoryController' , function(oper, $location, calc, onePerson){
         var dirList = this;
 
         dirList.list = [
@@ -67,8 +66,15 @@ angular.module('directoryApp',['ngRoute'])
         dirList.name = "Jhon";
 
         dirList.one = oper.ADD(26,30);
-
         dirList.two = oper.REST(30,26);
+
+        dirList.myURL = $location.absUrl();
+
+        dirList.square = function(){
+            dirList.squareRes = calc.SQR(dirList.valNum);
+        }
+
+        dirList.callService = onePerson.final(dirList.valNum);
     })
 
     .service('oper', function() {
@@ -78,6 +84,12 @@ angular.module('directoryApp',['ngRoute'])
 
         this.REST = function(a,b) {
             return a - b;
+        }
+    })
+
+    .service('calc', function(){
+        this.SQR = function(a) {
+            return a * a
         }
     })
     

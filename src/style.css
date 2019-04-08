@@ -5,6 +5,9 @@ nav {
     background: beige;
     padding: 15px;
 }
+.boton-ocultar {
+    margin: 15px 0;
+}
 .content {
     padding: 0 15px 15px 15px;
     margin-bottom: 30px;
@@ -64,13 +67,18 @@ li.ng-leave.ng-leave-active {
     opacity: 0;
     transform: translate(100%)
 }
-.nameOne, .buttonOne {
+.button-one {
+    margin: 15px 0;
+}
+.nameOne, .button-one {
     cursor: pointer;
 }
 .green {
     background-color: green;
 }
-
+.name-res {
+    margin: 15px 0;
+}
 .drop-btn {
     background-color: #4CAF50;
     color: white;
