@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html >
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Home</title>
-</head>
-<body>
-    <h1>Hola: {{dirList.search}} !</h1>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1>Hola: {{dirList.search}} !</h1>
 
-    <input id="nombreText" type="text" ng-model="dirList.search" placeholder="Nombre:"> <span> Para buscar en la lista</span>
-    <br>
-    <button ng-hide="dirList.toggle" ng-click="dirList.toggle = true">Mostrar</button>
-    <button ng-hide="!dirList.toggle" ng-click="dirList.toggle = false">Ocultar</button><span> Para ocultar lista</span>
-    
-    <div>
-        <div class="dropdown">
-            <select id="option-select" class="drop-content" ng-model="dirList.orderedBy">
-                <option value="nombre" class="option">Nombre</option>
-                <option value="edad" class="option">Edad</option>
-            </select>
+        <input id="nombreText" type="text" ng-model="dirList.search" placeholder="Nombre:"> <span> Para buscar en la lista</span>
+        <br>
+        <button ng-hide="dirList.toggle" ng-click="dirList.toggle = true">Mostrar</button>
+        <button ng-hide="!dirList.toggle" ng-click="dirList.toggle = false">Ocultar</button><span> Para ocultar lista</span>
+        
+        <div>
+            <div class="dropdown">
+                <select class="drop-content" ng-model="dirList.orderedBy" placeholder="H">
+                    <option value="nombre" class="option">Nombre</option>
+                    <option value="edad" class="option">Edad</option>
+                </select>
+            </div>
+            <div class="lista-desplegada">
+                <ul ng-if="dirList.toggle" ng-mousemove="dirList.count = dirList.count + 1">
+                    <a href="#!name" ng-click="dirList.newone(this)" >
+                        <li ng-repeat="item in dirList.list | filter: dirList.search | orderBy: dirList.orderedBy" class="{{item.nombre}}" ng-class="item.edad > 29 ? 'over-thirty' : 'under-thirty'">
+                            <img ng-src="{{item.img}}"/><span>{{item.nombre}} - <em>{{item.edad}}</em></span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
         </div>
-        <div class="lista-desplegada">
-            <ul ng-if="dirList.toggle" ng-mousemove="dirList.count = dirList.count + 1">
-                <a href="#!name" >
-                    <li ng-repeat="item in dirList.list | filter: dirList.search | orderBy: dirList.orderedBy" class="{{item.nombre}}" ng-class="item.edad > 29 ? 'over-thirty' : 'under-thirty'">
-                        <img ng-src="{{item.img}}"/><span>{{item.nombre}} - <em>{{item.edad}}</em></span>
-                    </li>
-                </a>
-            </ul>
-        </div>
-    </div>
 
-    <br>
-    <span id="new" class="nameOne" onclick="getLocalStorage()">H</span>
-    <button onclick="changeName()">Change</button>
-    <br>
-    <button class="buttonOne" ng-click="dirList.removePerson()">Remove</button>
-    
-    <form ng-submit="dirList.addPerson()">
-        <input type="text" placeholder="Name" ng-model="dirList.nombre" required>
-        <input type="number" placeholder="Age" ng-model="dirList.edad" required>
-        <input type="submit" value="Submit">
-        <span>Agregar nuevo usuario</span>
-    </form>
-    <h2>Contador: {{dirList.count}}</h2>
-    <telefonos></telefonos>
-</body>
+        <br>
+        <span id="new" class="nameOne" onclick="getLocalStorage()">H</span>
+        <button onclick="changeName()">Change</button>
+        <br>
+        <button class="buttonOne" ng-click="dirList.removePerson()">Remove</button>
+        
+        <form ng-submit="dirList.addPerson()">
+            <input type="text" placeholder="Name" ng-model="dirList.nombre" required>
+            <input type="number" placeholder="Age" ng-model="dirList.edad" required>
+            <input type="submit" value="Submit">
+            <span>Agregar nuevo usuario</span>
+        </form>
+        <h2>Contador: {{dirList.count}}</h2>
+        <telefonos></telefonos>
+    </body>
 </html>

@@ -11,7 +11,8 @@ angular.module('directoryApp',['ngRoute'])
                 templateUrl: "Pages/about-us.html"
             })
     })
-    .controller('directoryController', function(){
+    
+    .controller('directoryController' , function(oper){
 
         var dirList = this;
 
@@ -28,6 +29,19 @@ angular.module('directoryApp',['ngRoute'])
             {nombre: 'Jose', edad: 89, img: 'https://placeimg.com/23/23/any'},
         ];
 
+        dirList.cards = [
+            {nombre: 'Mante', hab: 31, img: 'https://placeimg.com/150/80/any'},
+            {nombre: 'Monterrey', hab: 29, img: 'https://placeimg.com/150/81/any'},
+            {nombre: 'Tijuana', hab: 65, img: 'https://placeimg.com/150/82/any'},
+            {nombre: 'Reynosa', hab: 29, img: 'https://placeimg.com/150/83/any'},
+            {nombre: 'Matamoros', hab: 12, img: 'https://placeimg.com/149/81/any'},
+            {nombre: 'China', hab: 50, img: 'https://placeimg.com/149/82/any'},
+            {nombre: 'Matehuala', hab: 29, img: 'https://placeimg.com/149/83/any'},
+            {nombre: 'Miquihuana', hab: 25, img: 'https://placeimg.com/151/80/any'},
+            {nombre: 'Piedras Negras', hab: 30, img: 'https://placeimg.com/151/81/any'},
+            {nombre: 'Valles', hab: 89, img: 'https://placeimg.com/151/82/any'},
+        ];
+
         dirList.toggle = true
 
         dirList.addPerson = function(){
@@ -38,12 +52,35 @@ angular.module('directoryApp',['ngRoute'])
             }
         };
 
+        dirList.newone = function(x) {
+            console.log(x);
+        }
+
         dirList.removePerson = function(){
             dirList.list.pop();
         }
 
         dirList.count = 0;
+
+        dirList.orderedBy = "nombre";
+
+        dirList.name = "Jhon";
+
+        dirList.one = oper.ADD(26,30);
+
+        dirList.two = oper.REST(30,26);
     })
-    .factory('Data', function() {
-        return {message: "I'm data from a service"}
+
+    .service('oper', function() {
+        this.ADD = function(a,b) {
+            return a + b
+        }
+
+        this.REST = function(a,b) {
+            return a - b;
+        }
+    })
+    
+    .factory('Data', function(a,b) {
+        return message = "Res: "+(a+b)
     });

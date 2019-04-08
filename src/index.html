@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html ng-app="directoryApp" lang="es">
-<head>
-    <title>Home</title>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    
-    <script src="directory.js"></script>
+    <head>
+        <title>Home</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        
+        <script src="directory.js"></script>
 
-    <script> localStorage.apell = "Juarez" </script>
-    <script> function getLocalStorage(){var nom = document.getElementById("nombreText").value; localStorage.name = nom; document.getElementById("new").innerHTML = localStorage.name} </script>
-    <script> function changeName(){localStorage.setItem("name","Albert"); document.getElementById("new").innerHTML = localStorage.name}</script>
-    
-    <link href="/style.css" rel="stylesheet" />
+        <script> localStorage.apell = "Juarez" </script>
+        
+        <script> function getLocalStorage(){var nom = document.getElementById("nombreText").value; localStorage.name = nom; document.getElementById("new").innerHTML = localStorage.name} </script>
+        <script> function changeName(){localStorage.setItem("name","Albert"); document.getElementById("new").innerHTML = localStorage.name}</script>
+        
+        <link href="/style.css" rel="stylesheet" />
 
-</head>
-<body ng-controller="directoryController as dirList" class="{{dirList.search}}">
-    <nav>
-        <a href="#!">Home</a>
-        <a href="#!name">Name</a>
-        <a href="#!about-us">About us</a>
-    </nav>
-    <h4>{{localStorage.apell}}</h4>
-    <div class="content" ng-view></div> 
-</body>
-<footer>
-    Hola(c) All rights reserved.
-</footer>
+    </head>
+    <body ng-controller="directoryController as dirList" style = "background-color:{{dirList.search}}" >
+        <nav>
+            <a href="#!">Home</a>
+            <a href="#!name">Name</a>
+            <a href="#!about-us">About us</a>
+        </nav>
+        <h4>{{localStorage.apell}}</h4>
+        
+        <div class="content" ng-view></div> 
+    
+    </body>
+    <footer>
+        Hola(c) All rights reserved. --- --- --- {{dirList.one}} --- --- --- {{dirList.two}}
+    </footer>
 </html>
