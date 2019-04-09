@@ -17,7 +17,15 @@
                 Resultado: {{dirList.squareRes}}
             </span>
         </div>
-        {{dirList.callService}}
+        <span>{{dirList.callService}}</span>
+    </div>
+    <div>
+        <button ng-click="dirList.getData()">Get Data</button>
+        <ul>
+            <li ng-repeat="item in dirList.getResponse">
+                <span>{{item.id + ' - ' + item.username + ' - ' + item.email}}</span>
+            </li>
+        </ul>
     </div>
 </body>
 </html>

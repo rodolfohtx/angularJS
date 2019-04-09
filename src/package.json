@@ -2,14 +2,15 @@
   "name": "angularjsnomore",
   "version": "1.0.0",
   "description": "",
-  "main": "directory.js",
+  "main": "firstController.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.8"
+    "angular": "^1.7.8",
+    "http-server": "^0.11.1"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

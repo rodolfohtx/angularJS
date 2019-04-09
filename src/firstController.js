@@ -10,9 +10,12 @@ angular.module('directoryApp',['ngRoute', 'person'])
             .when("/about-us",{
                 templateUrl: "Pages/AboutUs/about-us.html"
             })
+            .when("/sandbox",{
+                templateUrl: "Pages/Sandbox/sandbox.html"
+            })
     })
     
-    .controller('directoryController' , function(oper, $location, calc, onePerson){
+    .controller('directoryController' , function(oper, calc, onePerson, $location, $http){
         var dirList = this;
 
         dirList.list = [
@@ -39,6 +42,19 @@ angular.module('directoryApp',['ngRoute', 'person'])
             {nombre: 'Miquihuana', hab: 25, img: 'https://placeimg.com/151/80/any'},
             {nombre: 'Piedras Negras', hab: 30, img: 'https://placeimg.com/151/81/any'},
             {nombre: 'Valles', hab: 89, img: 'https://placeimg.com/151/82/any'},
+        ];
+
+        dirList.workedCode = [
+            {titulo: '$http'},
+            {titulo: 'Cards'},
+            {titulo: 'Counter'},
+            {titulo: 'Form HTML Tag'},
+            {titulo: 'ng-click'},
+            {titulo: 'ng-hide'},
+            {titulo: 'ng-model'},
+            {titulo: 'Services'},
+            {titulo: 'Sort'},
+            {titulo: 'Localstorage'}
         ];
 
         dirList.toggle = true
@@ -75,6 +91,16 @@ angular.module('directoryApp',['ngRoute', 'person'])
         }
 
         dirList.callService = onePerson.final(dirList.valNum);
+
+        dirList.getData = function() {
+            alert('Realizando llamada a la API mediante $http.get sin headers triggereado por un click')
+            $http.get('https://jsonplaceholder.typicode.com/users')
+            .then(
+                function(response) {
+                    dirList.getResponse = response.data
+                }
+            )
+        }
     })
 
     .service('oper', function() {
