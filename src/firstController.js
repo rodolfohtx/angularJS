@@ -48,6 +48,7 @@ angular.module('directoryApp',['ngRoute', 'person'])
             {titulo: '$http'},
             {titulo: 'Cards'},
             {titulo: 'Counter'},
+            {titulo: 'Directivas'},
             {titulo: 'Form HTML Tag'},
             {titulo: 'ng-click'},
             {titulo: 'ng-hide'},
@@ -101,6 +102,8 @@ angular.module('directoryApp',['ngRoute', 'person'])
                 }
             )
         }
+
+        dirList.nombre = "Victor Quinonez";
     })
 
     .service('oper', function() {
@@ -121,4 +124,10 @@ angular.module('directoryApp',['ngRoute', 'person'])
     
     .factory('Data', function(a,b) {
         return message = "Res: "+(a+b)
-    });
+    })
+
+    .directive('personCard', function() {
+        return {
+            templateUrl: './Directivas/PersonCard/personCard.html'
+        }
+    })

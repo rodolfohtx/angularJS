@@ -15,7 +15,6 @@
         <script> function changeName(){localStorage.setItem("name","Albert"); document.getElementById("new").innerHTML = localStorage.name}</script>
         
         <link href="/style.css" rel="stylesheet" />
-
     </head>
     <body ng-controller="directoryController as dirList" style = "background-color:{{dirList.search}}" >
         <nav>
@@ -23,11 +22,13 @@
             <a href="#!name">Name</a>
             <a href="#!about-us">About us</a>
             <a href="#!sandbox">[ Sandbox ]</a>
-        </nav>
+        </nav>        
         <h4>{{localStorage.apell}}</h4>
         
-        <div class="content" ng-view></div> 
-    
+        
+        <!--ng-view-->
+        <div class="content" ng-view></div>
+        <!--ng-view-->
     </body>
     <footer>
         Hola(c) All rights reserved. --- --- --- Suma: {{dirList.one}} --- --- --- Resta: {{dirList.two}} --- --- ---
