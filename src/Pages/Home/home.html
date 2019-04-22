@@ -25,6 +25,7 @@
                     <option value="edad" class="option">Edad</option>
                 </select>
             </div>
+            <span>Este ordenamiento, solo es mediante HTML, no se ve reflejado en javascript y por lo tanto elimina el último de la lista antes de ser ordenada.</span>
             <div class="lista-desplegada">
                 <ul ng-if="dirList.toggle" ng-mousemove="dirList.count = dirList.count + 1">
                     <a href="#!name" ng-click="dirList.newone(this)" >
@@ -37,12 +38,12 @@
         </div>
 
         <person-card></person-card>
-        
+
         <br>
         <span id="new" class="nameOne" onclick="getLocalStorage()">H</span>
         <button onclick="changeName()">Change</button>
         <br>
-        <button class="button-one" ng-click="dirList.removePerson()">Remove</button>
+        <button class="button-one" ng-click="dirList.removePerson()">Remove</button> <span>Elimina el ultimo de la lista (before sort)</span>
         
         <form ng-submit="dirList.addPerson()">
             <input type="text" placeholder="Name" ng-model="dirList.nombre" required>

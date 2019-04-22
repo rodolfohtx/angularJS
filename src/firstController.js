@@ -29,23 +29,26 @@ angular.module('directoryApp',['ngRoute', 'person'])
             {nombre: 'Roberto', edad: 25, img: 'https://placeimg.com/22/27/any'},
             {nombre: 'Daniel', edad: 30, img: 'https://placeimg.com/23/27/any'},
             {nombre: 'Jose', edad: 89, img: 'https://placeimg.com/23/23/any'},
+            {nombre: 'Zoe', edad: 11, img: 'https://placeimg.com/23/23/any'}
         ];
 
         dirList.cards = [
-            {nombre: 'Mante', hab: 31, img: 'https://placeimg.com/150/80/any'},
-            {nombre: 'Monterrey', hab: 29, img: 'https://placeimg.com/150/81/any'},
-            {nombre: 'Tijuana', hab: 65, img: 'https://placeimg.com/150/82/any'},
-            {nombre: 'Reynosa', hab: 29, img: 'https://placeimg.com/150/83/any'},
-            {nombre: 'Matamoros', hab: 12, img: 'https://placeimg.com/149/81/any'},
-            {nombre: 'China', hab: 50, img: 'https://placeimg.com/149/82/any'},
-            {nombre: 'Matehuala', hab: 29, img: 'https://placeimg.com/149/83/any'},
-            {nombre: 'Miquihuana', hab: 25, img: 'https://placeimg.com/151/80/any'},
-            {nombre: 'Piedras Negras', hab: 30, img: 'https://placeimg.com/151/81/any'},
-            {nombre: 'Valles', hab: 89, img: 'https://placeimg.com/151/82/any'},
+            {nombre: 'Mante', hab: 31123, img: 'https://placeimg.com/150/80/any'},
+            {nombre: 'Monterrey', hab: 23219, img: 'https://placeimg.com/150/81/any'},
+            {nombre: 'Tijuana', hab: 66545, img: 'https://placeimg.com/150/82/any'},
+            {nombre: 'Reynosa', hab: 29879, img: 'https://placeimg.com/150/83/any'},
+            {nombre: 'Matamoros', hab: 18452, img: 'https://placeimg.com/149/81/any'},
+            {nombre: 'China', hab: 50487, img: 'https://placeimg.com/149/82/any'},
+            {nombre: 'Matehuala', hab: 25989, img: 'https://placeimg.com/149/83/any'},
+            {nombre: 'Miquihuana', hab: 25695, img: 'https://placeimg.com/151/80/any'},
+            {nombre: 'Piedras Negras', hab: 52630, img: 'https://placeimg.com/151/81/any'},
+            {nombre: 'Valles', hab: 89689, img: 'https://placeimg.com/151/82/any'},
+            {nombre: 'Tampico', hab: 45889, img: 'https://placeimg.com/151/82/any'}
         ];
 
         dirList.workedCode = [
             {titulo: '$http'},
+            {titulo: '$location'},
             {titulo: 'Cards'},
             {titulo: 'Counter'},
             {titulo: 'Directivas'},
@@ -103,7 +106,7 @@ angular.module('directoryApp',['ngRoute', 'person'])
             )
         }
 
-        dirList.nombre = "Victor Quinonez";
+        dirList.nombrePersona = "Victor Quinonez";
     })
 
     .service('oper', function() {
